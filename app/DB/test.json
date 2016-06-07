@@ -1,0 +1,104 @@
+{
+  "filmai": [
+  {
+    "name": "The Shawshank Redemption",
+    "year": 1994,
+    "poster": "img/Shawshank.jpg",
+    "page" : "http://www.imdb.com/title/tt0111161/",
+    "actors": [
+      {
+        "name": "Morgan Freeman",
+        "oscars": 2005,
+        "photo" : "DB/img/MorganFreeman.jpg",
+        "page" : "http://www.imdb.com/name/nm0000151/"
+      },
+      {
+        "name": "Tim Robbins",
+        "oscars": 2004,
+        "photo" : "DB/img/TimRobbins.jpg",
+        "page" : "http://www.imdb.com/name/nm0000209/"
+      }
+    ]
+  },
+  {
+    "name": "The Godfather",
+    "year": 1972,
+    "poster": "img/Godfather.jpg",
+    "page" : "http://www.imdb.com/title/tt0068646/",
+    "actors": [
+      {
+        "name" : "Al Pacino",
+        "oscars" : 1993,
+        "photo" : "DB/img/Al Pacino.jpg",
+        "page" : "http://www.imdb.com/name/nm0000199/"
+      },
+      {
+        "name" : "Marlon Brando",
+        "oscars" : [1955,1973],
+        "photo" : "DB/img/Marlon Brando.jpg",
+        "page" : "http://www.imdb.com/name/nm0000008/"
+      }
+    ]
+  },
+  {
+    "name": "Schindler's List",
+    "year": 1993,
+    "poster": "img/Schindler.jpg",
+    "page" : "http://www.imdb.com/title/tt0108052/",
+    "actors": [
+      {
+        "name": "Liam Neeson",
+       "oscars": 0,
+        "photo" : "DB/img/Liam Neeson.jpg",
+        "page" : "http://www.imdb.com/name/nm0000553/"
+      },
+      {
+      "name": "Ralph Fiennes",
+      "oscars": 0,
+        "photo" : "DB/img/Ralph Fiennes.jpg",
+        "page" : "http://www.imdb.com/name/nm0000146/"
+      }
+    ]
+  },
+  {
+    "name": "The Matrix",
+    "year": 1999,
+    "poster": "img/Matrix.jpg",
+    "page" : "http://www.imdb.com/title/tt0133093/",
+    "actors":[
+      {
+        "name" : "Keanu Reeves",
+        "oscars" : 0,
+        "photo" : "DB/img/Keanu Reeves.jpg",
+        "page" : "http://www.imdb.com/name/nm0000206/"
+      },
+      {
+        "name" : "Laurence Fishburne",
+        "oscars" : 0,
+        "photo" : "DB/img/Laurence Fishburne.jpg",
+        "page" : "http://www.imdb.com/name/nm0000401/"
+      }
+    ]
+  },
+  {
+    "name": "The Pianist",
+    "year": 2002,
+    "poster": "img/Pianist.jpg",
+    "page" : "http://www.imdb.com/title/tt0253474/",
+    "actors":[
+      {
+        "name" : "Adrien Brody",
+        "oscars" : 2003,
+        "photo" : "DB/img/Adrien Brody.jpg",
+        "page" : "http://www.imdb.com/name/nm0004778/"
+      },
+      {
+        "name" : "Emilia Fox",
+        "oscars" : 0,
+        "photo" : "DB/img/Emilia Fox.jpg",
+        "page" : "http://www.imdb.com/name/nm0288976/"
+      }
+    ]
+  }
+]
+}

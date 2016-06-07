@@ -9,6 +9,18 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
+
+	$scope.filmai = null;
+
+	$http({
+		method : 'GET',
+		url : 'DB/test.json'
+	}).then(function successCallback(response) {
+			$scope.filmai = response.data.filmai;
+			$scope.actors = response.data.actors;
+	  }, function errorCallback(response) {
+	    	$scope.error = 'Can`t load movies';
+	  });
 
 }]);

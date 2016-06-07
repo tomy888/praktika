@@ -1,1 +1,30 @@
 <p>This is the partial for view 1.</p>
+
+<style>
+table, th, td, tr {
+    border: 2px solid black;
+    margin: 5px;
+    padding: 10px;
+}
+</style>
+
+
+</table>
+
+<table>
+  <th>Filmai</th>
+	<tr ng-repeat="filmas in filmai">
+		<td>
+			<div id="movie">{{filmas.name}} : {{filmas.year}} <a href="{{filmas.page}}"><img src='DB/{{filmas.poster}}' width="250" /></a></div>
+			<table>
+				<th>Actors</th>
+				<td>
+					<div id="actors" ng-if="filmas.actors" ng-repeat='actor in filmas.actors'><a href="{{actor.page}}"><img src='{{actor.photo}}' width="100" /></a> {{actor.name}} Oscars: {{actor.oscars}}</div>
+				</td>
+				</table>
+		</td>
+	</tr>
+
+</table>
+
+<div ng-if="!filmai">Loading movies ...</div>
