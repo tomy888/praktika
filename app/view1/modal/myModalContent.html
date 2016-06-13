@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">About: {{description.name}}</div>
+  <div class="panel-body">
+    {{description.about}}
+
+    <p>Oscars won: {{description.oscars}}</p>
+    <p><a ng-click= "cancel()" ng-href="#!/view2/{{description.name}}">More info</a></p>
+  </div>
+  <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+        </div>
+</div>

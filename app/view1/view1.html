@@ -1,30 +1,38 @@
-<p>This is the partial for view 1.</p>
-
-<style>
-table, th, td, tr {
-    border: 2px solid black;
-    margin: 5px;
-    padding: 10px;
-}
-</style>
 
 
-</table>
+<!--<pre>{{filmai | json}}</pre>-->
+<header><img src="DB/img/banner.jpg" width="100%"></header>
 
-<table>
-  <th>Filmai</th>
-	<tr ng-repeat="filmas in filmai">
-		<td>
-			<div id="movie">{{filmas.name}} : {{filmas.year}} <a href="{{filmas.page}}"><img src='DB/{{filmas.poster}}' width="250" /></a></div>
-			<table>
-				<th>Actors</th>
-				<td>
-					<div id="actors" ng-if="filmas.actors" ng-repeat='actor in filmas.actors'><a href="{{actor.page}}"><img src='{{actor.photo}}' width="100" /></a> {{actor.name}} Oscars: {{actor.oscars}}</div>
-				</td>
-				</table>
-		</td>
-	</tr>
-
-</table>
+<table class="table table-bordered">
+  <th colspan="3">Movies</th>
+	<tr valign="top" ng-repeat="filmas in filmai | orderBy: 'order' track by $index" ng-init="filmas.isClosed = true">
+		<td width="300">
+			<div id="movie">
+				<b>{{filmas.name}}</b> : {{filmas.year}} 
+					<p><button class="btn btn-primary" ng-click = "switchMovies(filmas.order, -1)">Up</button></p>
+					<p><button class="btn btn-primary" ng-click = "switchMovies(filmas.order, 1)">Down</button></p>
+					<td width="250"><a href="{{filmas.page}}">
+						<img src='DB/{{filmas.poster}}' width="250" />
+					</a>
+					</td>
+						<td><button  class="btn btn-primary" ng-click="showMoreOrLess(filmas.name); filmas.isClosed = !filmas.isClosed">{{filmas.isClosed == false ? 'Show less' : 'Show more'}}</button>
+			</div>
+			<table class="table" valign="top" ng-if="filmas.actors && selectedMovie == filmas.name && !filmas.isClosed">
+				<tr>
+					<th>Actors</th>
+				</tr>
+				<tr ng-repeat='actor in filmas.actors'>
+					<td>
+						<div id="actors">
+							<a href="{{actor.page}}">
+								<img src='{{actor.photo}}' width="100" />
+							</a> {{actor.name}}
+							<button class="btn btn-primary" ng-click="open(actor)">Show More</button>
+						</div>
+					</td>
+				</tr>
+				<!--<tr>
+					<td><button ng-click="filmas.isClosed = !filmas.isClosed">X</button></td>
+				</tr>-->
 
 <div ng-if="!filmai">Loading movies ...</div>

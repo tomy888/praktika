@@ -10,13 +10,16 @@
         "name": "Morgan Freeman",
         "oscars": 2005,
         "photo" : "DB/img/MorganFreeman.jpg",
-        "page" : "http://www.imdb.com/name/nm0000151/"
+        "page" : "http://www.imdb.com/name/nm0000151/",
+        "about" : "Born June 1, 1937 (age 79) Memphis, Tennessee, U.S."
       },
       {
         "name": "Tim Robbins",
         "oscars": 2004,
         "photo" : "DB/img/TimRobbins.jpg",
-        "page" : "http://www.imdb.com/name/nm0000209/"
+        "page" : "http://www.imdb.com/name/nm0000209/",
+        "about" : "Born Timothy Francis Robbins October 16, 1958 (age 57) West Covina, California, U.S."
+
       }
     ]
   },
@@ -30,13 +33,15 @@
         "name" : "Al Pacino",
         "oscars" : 1993,
         "photo" : "DB/img/Al Pacino.jpg",
-        "page" : "http://www.imdb.com/name/nm0000199/"
+        "page" : "http://www.imdb.com/name/nm0000199/",
+        "about" : "Born Alfredo James Pacino April 25, 1940 (age 76) Manhattan, New York, U.S."
       },
       {
         "name" : "Marlon Brando",
         "oscars" : [1955,1973],
         "photo" : "DB/img/Marlon Brando.jpg",
-        "page" : "http://www.imdb.com/name/nm0000008/"
+        "page" : "http://www.imdb.com/name/nm0000008/",
+        "about" : "Born Marlon Brando, Jr. April 3, 1924 Omaha, Nebraska, U.S. Died  July 1, 2004 (aged 80) Westwood, California, U.S"
       }
     ]
   },
@@ -50,13 +55,15 @@
         "name": "Liam Neeson",
        "oscars": 0,
         "photo" : "DB/img/Liam Neeson.jpg",
-        "page" : "http://www.imdb.com/name/nm0000553/"
+        "page" : "http://www.imdb.com/name/nm0000553/",
+        "about" : "Born Liam John Neeson 7 June 1952 (age 64) Ballymena, County Antrim, Northern Ireland"
       },
       {
       "name": "Ralph Fiennes",
       "oscars": 0,
         "photo" : "DB/img/Ralph Fiennes.jpg",
-        "page" : "http://www.imdb.com/name/nm0000146/"
+        "page" : "http://www.imdb.com/name/nm0000146/",
+        "about" : "Born 22 December 1962 (age 53) Ipswich, Suffolk, England"
       }
     ]
   },
@@ -70,13 +77,15 @@
         "name" : "Keanu Reeves",
         "oscars" : 0,
         "photo" : "DB/img/Keanu Reeves.jpg",
-        "page" : "http://www.imdb.com/name/nm0000206/"
+        "page" : "http://www.imdb.com/name/nm0000206/",
+        "about" : "Born Keanu Charles Reeves September 2, 1964 (age 51) Beirut, Lebanon"
       },
       {
         "name" : "Laurence Fishburne",
         "oscars" : 0,
         "photo" : "DB/img/Laurence Fishburne.jpg",
-        "page" : "http://www.imdb.com/name/nm0000401/"
+        "page" : "http://www.imdb.com/name/nm0000401/",
+        "about" : "Fishburne in September 2009 Born  Laurence John Fishburne III July 30, 1961 (age 54) Augusta, Georgia, U.S."
       }
     ]
   },
@@ -90,13 +99,15 @@
         "name" : "Adrien Brody",
         "oscars" : 2003,
         "photo" : "DB/img/Adrien Brody.jpg",
-        "page" : "http://www.imdb.com/name/nm0004778/"
+        "page" : "http://www.imdb.com/name/nm0004778/",
+        "about" : "Born April 14, 1973 (age 43) New York City, New York, United States"
       },
       {
         "name" : "Emilia Fox",
         "oscars" : 0,
         "photo" : "DB/img/Emilia Fox.jpg",
-        "page" : "http://www.imdb.com/name/nm0288976/"
+        "page" : "http://www.imdb.com/name/nm0288976/",
+        "about" : "Born Emilia Rose Elizabeth Fox 31 July 1974 (age 41) Hammersmith, London, England"
       }
     ]
   }

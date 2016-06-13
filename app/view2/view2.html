@@ -1,5 +1,29 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<!--<pre>{{info | json}}</pre>-->
+<h1>More information about {{actorName}}</h1> 
+
+<table class="table table-bordered" ng-if="info.Response == 'True'">
+	<tr ng-repeat = "filmas in filmai">
+		<td ng-repeat="actor in filmas.actors" ng-if="actorName == actor.name" colspan="2"><img src="{{actor.photo}}" width="200"></td>
+	</tr>
+	<tr> <td><b>Title</b></td>	<td>{{info.Title}}</td> </tr>
+	<tr> <td><b>Year</b></td>	<td>{{info.Year}}</td> </tr>
+	<tr> <td><b>Rated</b></td>	<td>{{info.Rated}}</td> </tr>
+	<tr> <td><b>Released</b></td>	<td>{{info.Released}}</td> </tr>
+	<tr> <td><b>Runtime</b></td>	<td>{{info.Runtime}}</td> </tr>
+	<tr> <td><b>Genre</b></td>	<td>{{info.Genre}}</td> </tr>
+	<tr> <td><b>Director</b></td>	<td>{{info.Director}}</td> </tr>
+	<tr> <td><b>Writer</b></td>	<td>{{info.Writer}}</td> </tr>
+	<tr> <td><b>Actors</b></td>	<td>{{info.Actors}}</td> </tr>
+	<tr> <td><b>Plot</b></td>	<td>{{info.Plot}}</td> </tr>
+	<tr> <td><b>Language</b></td>	<td>{{info.Language}}</td> </tr>
+	<tr> <td><b>Country</b></td>	<td>{{info.Country}}</td> </tr>
+	<tr> <td><b>Awards</b></td>	<td>{{info.Awards}}</td> </tr>
+	<tr> <td><b>Poster</b></td>	<td>{{info.Poster}}</td> </tr>
+	<tr> <td><b>Metascore</b></td>	<td>{{info.Metascore}}</td> </tr>
+	<tr> <td><b>IMDB Rating</b></td>	<td>{{info.imdbRating}}</td> </tr>
+	<tr> <td><b>IMDB Votes</b></td>	<td>{{info.imdbVotes}}</td> </tr>
+	<tr> <td><b>IMDB ID</b></td>	<td>{{info.imdbID}}</td> </tr>
+	<tr> <td><b>Type</b></td>	<td>{{info.Type}}</td> </tr>
+</table>
+<p ng-if="info.Response == 'False'">There is no more information about {{actor}} found.</p>
+<p><a class="btn btn-primary" href="#!/view1">Go back</a></p>

@@ -28,3 +28,17 @@
   content: "";
   padding: 0;
 }
+
+/* table, th, td, tr {
+    border: 2px solid black;
+    margin: 5px;
+    padding: 10px;
+}*/
+
+.panel {
+  margin-bottom: 0px !important;
+}
+
+th{
+  text-align: center;
+}
