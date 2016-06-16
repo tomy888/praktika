@@ -9,10 +9,10 @@
             <div id="movie">
                 <b>{{filmas.name}} {{$index}} {{filmas.order}}</b> : {{filmas.year}}
                 <p>
-                    <button class="btn btn-primary" ng-click="swapElements(filmas.order, -1)">Up</button>
+                    <button class="btn btn-primary" ng-click="switchMovies(filmas.order, -1)">Up</button>
                 </p>
                 <p>
-                    <button class="btn btn-primary" ng-click="swapElements(filmas.order, 1)">Down</button>
+                    <button class="btn btn-primary" ng-click="switchMovies(filmas.order, 1)">Down</button>
                 </p>
         <td width="250"><a href="{{filmas.page}}">
             <img ng-src='DB/{{filmas.poster}}' width="250"/>

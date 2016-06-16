@@ -12,6 +12,7 @@ angular.module('myApp.search', [])
     .controller('SearchCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.movieInfo = {};
         $scope.error = null;
+        $scope.items = ['settings', 'home', 'other'];
         $scope.search = function () {
             if ($scope.keywords.length > 0) {
                 var movieUrl = 'http://www.omdbapi.com/?t=' + $scope.keywords + '&y=true&plot=full&r=json&tomatoes=true&type=movie';

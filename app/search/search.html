@@ -1,22 +1,44 @@
-<div>
+<div class="container">
     <form class="well form-search">
         <label>Search:</label>
         <input type="text" ng-model="keywords" class="form-control" placeholder="Keywords...">
         <button id="btn_click" type="button" class="btn btn-primary" ng-click="search()"><span
                 class="glyphicon glyphicon-search"></span></button>
     </form>
-	<!--<pre ng-if="movieInfo">
-		{{movieInfo | json}}
-	</pre>-->
+    <!--<pre ng-if="movieInfo">
+        {{movieInfo | json}}
+    </pre>-->
 </div>
 
 <div id="movieInfo" class="container">
 
-    <div class="row" ng-repeat="(key, value) in movieInfo">
-        <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
-        <div class="col-md-10" id="{{key}}">{{value}}</div>
-    </div>
+    <div class="row window" ng-repeat="(key, value) in movieInfo" ng-if="movieInfo.Response == 'True'" ng-switch
+         on="key">
 
+        <div ng-switch-when="Poster">
+            <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+            <div class="col-md-10" ng-if="value!='N/A'"><img ng-src="{{value}}"></div>
+            <div class="col-md-10" ng-if="value=='N/A'">{{value}}</div>
+        </div>
+        <div ng-switch-when="tomatoURL">
+            <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+            <div class="col-md-10" ng-if="value!='N/A'"><a href="{{value}}">{{value}}</a></div>
+            <div class="col-md-10" ng-if="value=='N/A'">{{value}}</div>
+        </div>
+        <div ng-switch-when="Website">
+            <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+            <div class="col-md-10" ng-if="value!='N/A'"><a href="{{value}}">{{value}}</a></div>
+            <div class="col-md-10" ng-if="value=='N/A'">{{value}}</div>
+        </div>
+        <div ng-switch-when="Response"></div>
+        <div ng-switch-default>
+            <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+            <div class="col-md-10" id="{{key}}">{{value}}</div>
+        </div>
+
+    </div>
+    <div ng-if="movieInfo.Response == 'False'"><b>Movie not found!</b></div>
 </div>
-<hr />
+<hr/>
 <div ng-if="error">empty</div>
+

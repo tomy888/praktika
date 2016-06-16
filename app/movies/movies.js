@@ -67,13 +67,5 @@ angular.module('myApp.movies', [])
 	$scope.filmai[index].order = o2;
 	$scope.filmai[index+direction].order = o1;
 }
-
-
-$scope.swapElements = function(obj1, obj2) {
-    obj2.nextSibling === obj1
-    ? obj1.parentNode.insertBefore(obj2, obj1.nextSibling)
-    : obj1.parentNode.insertBefore(obj2, obj1); 
-}
-
-
+	
 }]);
