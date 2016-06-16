@@ -1,0 +1,22 @@
+<div>
+    <form class="well form-search">
+        <label>Search:</label>
+        <input type="text" ng-model="keywords" class="form-control" placeholder="Keywords...">
+        <button id="btn_click" type="button" class="btn btn-primary" ng-click="search()"><span
+                class="glyphicon glyphicon-search"></span></button>
+    </form>
+	<!--<pre ng-if="movieInfo">
+		{{movieInfo | json}}
+	</pre>-->
+</div>
+
+<div id="movieInfo" class="container">
+
+    <div class="row" ng-repeat="(key, value) in movieInfo">
+        <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+        <div class="col-md-10" id="{{key}}">{{value}}</div>
+    </div>
+
+</div>
+<hr />
+<div ng-if="error">empty</div>

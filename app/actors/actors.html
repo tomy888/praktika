@@ -3,7 +3,7 @@
 
 <table class="table table-bordered" ng-if="info.Response == 'True'">
 	<tr ng-repeat = "filmas in filmai">
-		<td ng-repeat="actor in filmas.actors" ng-if="actorName == actor.name" colspan="2"><img src="{{actor.photo}}" width="200"></td>
+		<td ng-repeat="actor in filmas.actors" ng-if="actorName == actor.name" colspan="2"><img ng-src="{{actor.photo}}" width="200"></td>
 	</tr>
 	<tr> <td><b>Title</b></td>	<td>{{info.Title}}</td> </tr>
 	<tr> <td><b>Year</b></td>	<td>{{info.Year}}</td> </tr>
@@ -26,4 +26,4 @@
 	<tr> <td><b>Type</b></td>	<td>{{info.Type}}</td> </tr>
 </table>
 <p ng-if="info.Response == 'False'">There is no more information about {{actor}} found.</p>
-<p><a class="btn btn-primary" href="#!/view1">Go back</a></p>
+<p><a class="btn btn-primary" href="#!/movies">Go back</a></p>

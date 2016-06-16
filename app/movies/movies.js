@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
+angular.module('myApp.movies', [])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/movies', {
+    templateUrl: 'movies/movies.html',
+    controller: 'MoviesCtrl'
   });
 }])
 
-.controller('View1Ctrl', ['$scope', '$http', '$uibModal', '$log', function($scope, $http, $uibModal, $log) {
+.controller('MoviesCtrl', ['$scope', '$http', '$uibModal', '$log', function($scope, $http, $uibModal, $log) {
 
 	$scope.filmai = null;
 	$scope.selectedMovie = null;
@@ -34,17 +34,12 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	    	$scope.error = 'Can`t load movies';
 	  });
 
-	$scope.showMoreOrLess = function(filmasName) {
-
-		$scope.selectedMovie = filmasName;
-	}
-
 	$scope.open = function (about) {
 		$scope.description = about;
 
     var modalInstance = $uibModal.open({
 			animation: $scope.animationsEnabled,
-			templateUrl: 'view1/modal/myModalContent.html',
+			templateUrl: 'movies/modal/myModalContent.html',
 			controller: function($scope, $uibModalInstance, description) {
 				$scope.description = description;
 				$scope.cancel = function () {
@@ -71,7 +66,14 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	var o2 = $scope.filmai[index+direction].order;
 	$scope.filmai[index].order = o2;
 	$scope.filmai[index+direction].order = o1;
-	
 }
+
+
+$scope.swapElements = function(obj1, obj2) {
+    obj2.nextSibling === obj1
+    ? obj1.parentNode.insertBefore(obj2, obj1.nextSibling)
+    : obj1.parentNode.insertBefore(obj2, obj1); 
+}
+
 
 }]);
