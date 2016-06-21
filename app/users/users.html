@@ -1,3 +1,15 @@
-<pre>
+<!--<pre>
      {{usersInfo | json}}
- </pre>
+ </pre>-->
+
+<div ng-repeat="users in usersInfo">
+    <div class="row window" ng-repeat="user in users">
+        <div ng-repeat="(key,value) in user" ng-switch on="key">
+            <div ng-switch-when="password"></div>
+            <div  ng-switch-default>
+                <div class="col-md-2"><b>{{key}}:</b></div>
+                <div class="col-md-10">{{value}}</div>
+            </div>
+        </div>
+    </div>
+</div>

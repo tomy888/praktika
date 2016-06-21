@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+        <form name="userForm" ng-submit="addUser()" novalidate>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input id="name" class="form-control" type="text" ng-model="user.name" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input id="password" class="form-control" type="password" ng-model="user.password" required>
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm Password:</label>
+                <input id="password2" class="form-control" type="password" ng-model="user.password2" required>
+                <div ng-show="user.password == user.password2 && user.password2">
+                    <span id="pwmatch" class="glyphicon glyphicon-ok"></span>
+                    Passwords match
+                </div>
+                <div ng-show="user.password !== user.password2 && user.password2">
+                    <span id="pwdontmatch" class="glyphicon glyphicon-remove"></span>
+                    Passwords do not match
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="admin">Admin:</label>
+                <select id="admin" class="form-control" ng-model="user.admin">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" class="form-control" type="email" ng-model="user.email" required>
+            </div>
+            <input ng-disabled="userForm.$invalid || user.password !== user.password2" type="submit" class="btn btn-primary" value="Add">
+        </form>
+    </div>
+    <div class="alert alert-success" role="alert" ng-show="successTextAlert">{{successTextAlert}}</div>
+    <div class="alert alert-danger" role="alert" ng-show="errorTextAlert">{{errorTextAlert}}</div>
+</div>

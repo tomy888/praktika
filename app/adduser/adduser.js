@@ -11,16 +11,28 @@ angular.module('myApp.addUser', [])
 
     .controller('AddUserCtrl', ['$scope', '$http', function ($scope, $http) {
 
-        $scope.testUser = {"user": {"name": "user4","password": "test4","isadmin": false,"email": "user4@user4.com"}};
+        $scope.successTextAlert = false;
+        $scope.errorTextAlert = false;
+
+        $scope.addUser = function () {
+            $scope.newUser = {
+                "user": {
+                    "name": $scope.user.name,
+                    "password": $scope.user.password,
+                    "isadmin": Boolean($scope.user.admin),
+                    "email": $scope.user.email
+                }
+            };
 
 
-            $http({
-                method: 'POST',
-                url: '"http://localhost:3000/adduser',
-                data: "$scope.testUser",
-                headers: {'Content-Type': 'application/json'}
+            $http.post("http://localhost:3000/adduser", $scope.newUser).success(function (data, status) {
+                console.log(data, status);
+                $scope.successTextAlert = "User added!";
+            }).error(function (data, status) {
+                console.log(data, status);
+                $scope.errorTextAlert = "Error!";
             });
-
+        };
 
 
     }]);
