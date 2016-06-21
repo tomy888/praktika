@@ -97,3 +97,7 @@ input[type="password"]:disabled.ng-valid{
 #pwmatch{
   color:green;
 }
+
+#nametooshort{
+  color:red;
+}

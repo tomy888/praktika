@@ -19,11 +19,10 @@ angular.module('myApp.addUser', [])
                 "user": {
                     "name": $scope.user.name,
                     "password": $scope.user.password,
-                    "isadmin": Boolean($scope.user.admin),
+                    "isadmin": $scope.user.admin == 'true' ? true : false,
                     "email": $scope.user.email
                 }
             };
-
 
             $http.post("http://localhost:3000/adduser", $scope.newUser).success(function (data, status) {
                 console.log(data, status);

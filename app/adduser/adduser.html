@@ -3,11 +3,13 @@
         <form name="userForm" ng-submit="addUser()" novalidate>
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input id="name" class="form-control" type="text" ng-model="user.name" required>
+                <input name="name" id="name" class="form-control" type="text" ng-model="user.name" pattern="(?=.*[a-z]).{3,}" required>
+                <div ng-show="userForm.name.$invalid">Name must contain at least 3 letters.</div>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input id="password" class="form-control" type="password" ng-model="user.password" required>
+                <input name="password" id="password" class="form-control" type="password" ng-model="user.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <div ng-show="userForm.password.$invalid">Password must contain at least one number,one uppercase and lowercase letter and at least 8 or more characters.</div>
             </div>
             <div class="form-group">
                 <label for="password2">Confirm Password:</label>
@@ -24,15 +26,16 @@
             <div class="form-group">
                 <label for="admin">Admin:</label>
                 <select id="admin" class="form-control" ng-model="user.admin">
-                    <option value="true">true</option>
-                    <option value="false">false</option>
+                    <option>true</option>
+                    <option>false</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input id="email" class="form-control" type="email" ng-model="user.email" required>
             </div>
-            <input ng-disabled="userForm.$invalid || user.password !== user.password2" type="submit" class="btn btn-primary" value="Add">
+            <input ng-disabled="userForm.$invalid || user.password !== user.password2 || !user.admin || user.name.length<3" type="submit"
+                   class="btn btn-primary" value="Add">
         </form>
     </div>
     <div class="alert alert-success" role="alert" ng-show="successTextAlert">{{successTextAlert}}</div>

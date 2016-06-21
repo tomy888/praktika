@@ -7,17 +7,23 @@
     <tr valign="top" ng-repeat="filmas in filmai | orderBy: 'order' track by $index" ng-init="filmas.isClosed = true">
         <td width="300">
             <div id="movie">
-                <b>{{filmas.name}} {{$index}} {{filmas.order}}</b> : {{filmas.year}}
+                <b>{{filmas.name}}</b> : {{filmas.year}}
                 <p>
                     <button class="btn btn-primary" ng-click="switchMovies(filmas.order, -1)">Up</button>
                 </p>
                 <p>
                     <button class="btn btn-primary" ng-click="switchMovies(filmas.order, 1)">Down</button>
                 </p>
+                <p>
+                    <h3>Price: €{{filmas.price}}</h3>
+                    <button class="btn btn-primary">Add to cart</button>
+                </p>
+
+            </div>
+        </td>
         <td width="250"><a href="{{filmas.page}}">
             <img ng-src='DB/{{filmas.poster}}' width="250"/>
         </a>
-            </div>
         </td>
         <td>
             <button class="btn btn-primary" ng-click="filmas.isClosed = !filmas.isClosed">{{!filmas.isClosed ? 'Show less': 'Show more'}}
