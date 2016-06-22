@@ -5,6 +5,7 @@
     "year": 1994,
     "poster": "img/Shawshank.jpg",
     "page" : "http://www.imdb.com/title/tt0111161/",
+    "price": 12.99,
     "actors": [
       {
         "name": "Morgan Freeman",
@@ -28,6 +29,7 @@
     "year": 1972,
     "poster": "img/Godfather.jpg",
     "page" : "http://www.imdb.com/title/tt0068646/",
+    "price": 13.99,
     "actors": [
       {
         "name" : "Al Pacino",
@@ -50,6 +52,7 @@
     "year": 1993,
     "poster": "img/Schindler.jpg",
     "page" : "http://www.imdb.com/title/tt0108052/",
+    "price": 14.99,
     "actors": [
       {
         "name": "Liam Neeson",
@@ -72,6 +75,7 @@
     "year": 1999,
     "poster": "img/Matrix.jpg",
     "page" : "http://www.imdb.com/title/tt0133093/",
+    "price": 15.99,
     "actors":[
       {
         "name" : "Keanu Reeves",
@@ -94,6 +98,7 @@
     "year": 2002,
     "poster": "img/Pianist.jpg",
     "page" : "http://www.imdb.com/title/tt0253474/",
+    "price": 20.99,
     "actors":[
       {
         "name" : "Adrien Brody",

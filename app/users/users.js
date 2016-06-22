@@ -14,7 +14,7 @@ angular.module('myApp.users', [])
         $scope.error = null;
         var usersUrl = 'http://localhost:3000/users';
 
-        $http.jsonp(usersUrl).
+        $http.get(usersUrl).
         success(function(data) {
             $scope.usersInfo = data;
             console.log($scope.usersInfo);

@@ -45,5 +45,59 @@ th{
 
 .window {
   background-color: whitesmoke;
+  border-bottom: 0.1em solid black;
+  border-top: 0.1em solid black;
+  margin-bottom: 2em;
+  margin-left: 1px;
 }
 
+input[type="email"].ng-invalid{
+  border-left: 5px solid #ff0000;
+  background-color: #FFEBD6;
+}
+input[type="email"].ng-valid{
+  background-color: #FFFFFF;
+  border-left: 5px solid #088b0b;
+}
+input[type="email"]:disabled.ng-valid{
+  background-color: #efefef;
+  border: 1px solid #bbb;
+}
+
+input[type="text"].ng-invalid{
+  border-left: 5px solid #ff0000;
+  background-color: #FFEBD6;
+}
+input[type="text"].ng-valid{
+  background-color: #FFFFFF;
+  border-left: 5px solid #088b0b;
+}
+input[type="text"]:disabled.ng-valid{
+  background-color: #efefef;
+  border: 1px solid #bbb;
+}
+
+input[type="password"].ng-invalid{
+  border-left: 5px solid #ff0000;
+  background-color: #FFEBD6;
+}
+input[type="password"].ng-valid{
+  background-color: #FFFFFF;
+  border-left: 5px solid #088b0b;
+}
+input[type="password"]:disabled.ng-valid{
+  background-color: #efefef;
+  border: 1px solid #bbb;
+}
+
+#pwdontmatch{
+  color:red;
+}
+
+#pwmatch{
+  color:green;
+}
+
+#nametooshort{
+  color:red;
+}
