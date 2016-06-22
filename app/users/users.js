@@ -9,9 +9,8 @@ angular.module('myApp.users', [])
         });
     }])
 
-    .controller('UsersCtrl', ['$scope', '$http', function ($scope, $http) {
+    .controller('UsersCtrl', ['$scope', '$http','moviesCart', function ($scope, $http, moviesCart) {
         $scope.usersInfo = {};
-        $scope.error = null;
         var usersUrl = 'http://localhost:3000/users';
 
         $http.get(usersUrl).
@@ -22,5 +21,20 @@ angular.module('myApp.users', [])
         error(function(data) {
             $scope.error = 'Can`t load info';
         });
+
+        $scope.delUser = function (id) {
+
+            var deleteUrl = 'http://localhost:3000/deleteuser/'+id+'';
+            $http.get(deleteUrl).
+            success(function(data, status) {
+                console.log(data)
+                $scope.successDeleteTextAlert = "User deleted!";
+            }).
+            error(function(data, status) {
+                $scope.errorDeleteTextAlert = "Error!";
+                console.log(data)
+            });
+
+        }
 
     }]);

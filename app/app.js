@@ -9,7 +9,9 @@ angular.module('myApp', [
     'myApp.users',
     'myApp.addUser',
     'myApp.directives',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'myApp.services',
+    'myApp.cart'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 

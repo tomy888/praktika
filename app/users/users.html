@@ -11,5 +11,8 @@
                 <div class="col-md-10">{{value}}</div>
             </div>
         </div>
+        <button class="btn btn-primary" ng-click="delUser(user.id)">Delete user</button>
     </div>
+    <div class="alert alert-success" role="alert" ng-show="successDeleteTextAlert">{{successDeleteTextAlert}}</div>
+    <div class="alert alert-danger" role="alert" ng-show="errorDeleteTextAlert">{{errorDeleteTextAlert}}</div>
 </div>

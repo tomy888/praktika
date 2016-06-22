@@ -16,7 +16,15 @@
                 </p>
                 <p>
                     <h3>Price: €{{filmas.price}}</h3>
-                    <button class="btn btn-primary">Add to cart</button>
+                Amount:<input ng-model="filmas.amount" class="btn btn-default btn-number" type="number" min="1" value="1">
+                </p>
+                <p>
+                <button class="btn btn-primary" ng-click="whichMovie(filmas.name);addMovie(filmas.poster,filmas.name,filmas.amount,filmas.price)">Add to cart</button>
+                </p>
+                <p>
+                    <div class="alert alert-success" role="alert" ng-show="selectedMovie == filmas.name && successCartTextAlert">{{successCartTextAlert}}</div>
+                    <div class="alert alert-danger" role="alert" ng-show="selectedMovie == filmas.name && errorCartTextAlert">{{errorCartTextAlert}}</div>
+
                 </p>
 
             </div>
@@ -49,6 +57,5 @@
         </td>
     </tr>
 </table>
-
 
 <div ng-if="!filmai">Loading movies ...</div>
