@@ -24,33 +24,34 @@ angular.module('myApp.history', [])
             }).then(function successCallback(response) {
                 $scope.movieInfo = response.data;
 
+                var modalInstance = $uibModal.open({
+                    animation: $scope.animationsEnabled,
+                    templateUrl: 'history/modal/ModalContent.html',
+                    controller: function ($scope, $uibModalInstance, movieInfo) {
+                        $scope.movieInfo = movieInfo;
+                        console.log($scope.movieInfo);
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    },
+                    size: 'lg',
+                    resolve: {
+                        movieInfo: function () {
+                            return $scope.movieInfo;
+                        }
+                    }
+                });
+
+                modalInstance.result.then(function (selectedItem) {
+                    //
+                }, function () {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
             }, function errorCallback(response) {
                 $scope.error = 'Can`t load info';
             });
 
-            var modalInstance = $uibModal.open({
-                animation: $scope.animationsEnabled,
-                templateUrl: 'history/modal/ModalContent.html',
-                controller: function ($scope, $uibModalInstance, movieInfo) {
-                    $scope.movieInfo = movieInfo;
-                    console.log($scope.movieInfo);
-                    $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
-                    };
-                },
-                size: 'lg',
-                resolve: {
-                    movieInfo: function () {
-                        return $scope.movieInfo;
-                    }
-                }
-            });
 
-            modalInstance.result.then(function (selectedItem) {
-                //
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
-            });
         };
 
     }]);

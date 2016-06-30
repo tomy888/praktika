@@ -1,4 +1,5 @@
 <h2>Payment</h2>
+<h4>Step 3 of 3</h4>
 <h4>Total price: {{priceToPay}} €</h4>
 <div class="container">
     <div>Select payment method</div>
@@ -12,7 +13,7 @@
     <div ng-if="paymentWay == 'cash'" class="row window">
         <div>
             If you choose this method of payment, you will need to pay in cash at delivery time.
-            <p><button class="btn btn-primary" ng-click="order = true;toHistory(cartData)" ng-show="!order">Order</button></p>
+            <p><button class="btn btn-primary" ng-click="order = true;toHistory(cartData);clearCart()" ng-show="!order">Order</button></p>
             <div class="alert alert-success" role="alert" ng-show="order">Ordered! Expect delivery in a few days</div>
         </div>
     </div>
@@ -34,7 +35,7 @@
             <div ng-show="transferInfo.CVV.$invalid">Ex. 555</div>
         </div>
         <div>
-            <input ng-disabled="transferInfo.$invalid" ng-click="submit = true" ng-show="!next" type="submit" class="btn btn-primary" value="Pay">
+            <input ng-disabled="transferInfo.$invalid" ng-click="submit = true;clearCart()" ng-show="!next" type="submit" class="btn btn-primary" value="Pay">
             <div class="alert alert-success" role="alert" ng-show="submit">Paid!</div>
         </div>
     </form>

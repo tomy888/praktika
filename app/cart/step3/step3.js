@@ -30,4 +30,8 @@ angular.module('myApp.step3', [])
             }
         }
 
+        $scope.clearCart = function () {
+            moviesCart.cart.splice(0, moviesCart.cart.length);
+        }
+
     }]);
