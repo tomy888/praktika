@@ -3,22 +3,23 @@
 <!--<pre>
         {{cartData | json}}
 </pre>-->
-<!--<pre>
-        {{cartInfo | json}}
-</pre>-->
+
 <div class="container">
     <div ng-show="filmas" class="row window" ng-repeat="filmas in cartData track by $index">
         <div ng-repeat="(key,value) in filmas" ng-switch on="key">
             <div class="col-md-2"><b>{{key}}:</b></div>
             <div ng-switch-when="Poster" class="col-md-10"><img ng-src="DB/{{value}}" width="200"/></div>
-            <div ng-switch-when="Price" class="col-md-10">{{value}}€</div>
+            <div ng-switch-when="Price" class="col-md-10">{{value}} €</div>
             <div  ng-switch-default>
                 <div class="col-md-10">{{value}}</div>
             </div>
         </div>
         <p>
-        <button ng-show="filmas" class="btn btn-primary" ng-click="deleteMovie($index)">Delete from cart</button>
+            <button ng-show="filmas" class="btn btn-primary" ng-click="deleteMovie($index)">Delete from cart</button>
         </p>
     </div>
-    <div ng-if="cartData == ''">There is no movies added to cart!</div>
+    <div >
+        <a ng-if="cartData.length>0" class="btn btn-primary" href="#!/cart/step1">Buy</a>
+        <div ng-if="cartData.length==0">There is no movies added to cart!</div>
+    </div>
 </div>

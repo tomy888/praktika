@@ -1,0 +1,41 @@
+<h2>Payment</h2>
+<h4>Total price: {{priceToPay}} €</h4>
+<div class="container">
+    <div>Select payment method</div>
+    <form>
+        <input type="radio" name="paymentWay" ng-model="paymentWay" value="cash"> In cash
+        <input type="radio" name="paymentWay" ng-model="paymentWay" value="transfer"> Transfer
+    </form>
+</div>
+
+<div class="container">
+    <div ng-if="paymentWay == 'cash'" class="row window">
+        <div>
+            If you choose this method of payment, you will need to pay in cash at delivery time.
+            <p><button class="btn btn-primary" ng-click="order = true;toHistory(cartData)" ng-show="!order">Order</button></p>
+            <div class="alert alert-success" role="alert" ng-show="order">Ordered! Expect delivery in a few days</div>
+        </div>
+    </div>
+
+    <form ng-if="paymentWay == 'transfer'" name="transferInfo" ng-submit="toHistory(cartData)" novalidate>
+        <div class="form-group">
+            <label for="card">Card nr.:</label>
+            <input name="card" id="card" class="form-control" type="text" ng-model="card.nr" pattern="(?=.*\d).{16,}" required>
+            <div ng-show="transferInfo.card.$invalid">16 digits</div>
+        </div>
+        <div class="form-group">
+            <label for="validity">Validity:</label>
+            <input name="validity" id="validity" class="form-control" type="text" ng-model="card.validity" pattern="(?=.*\d).{5,}" required>
+            <div ng-show="transferInfo.validity.$invalid">Ex. 06/18</div>
+        </div>
+        <div class="form-group">
+            <label for="CVV">CVV:</label>
+            <input name="CVV" id="CVV" class="form-control" type="text" ng-model="card.CVV" pattern="(?=.*\d).{3,}" required>
+            <div ng-show="transferInfo.CVV.$invalid">Ex. 555</div>
+        </div>
+        <div>
+            <input ng-disabled="transferInfo.$invalid" ng-click="submit = true" ng-show="!next" type="submit" class="btn btn-primary" value="Pay">
+            <div class="alert alert-success" role="alert" ng-show="submit">Paid!</div>
+        </div>
+    </form>
+</div>

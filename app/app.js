@@ -11,7 +11,12 @@ angular.module('myApp', [
     'myApp.directives',
     'ui.bootstrap',
     'myApp.services',
-    'myApp.cart'
+    'myApp.cart',
+    'myApp.step1',
+    'myApp.step2',
+    'myApp.step3',
+    'myApp.historyService',
+    'myApp.history'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 

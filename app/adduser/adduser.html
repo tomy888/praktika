@@ -34,7 +34,7 @@
                 <label for="email">Email:</label>
                 <input id="email" class="form-control" type="email" ng-model="user.email" required>
             </div>
-            <input ng-disabled="userForm.$invalid || user.password !== user.password2 || !user.admin || user.name.length<3" type="submit"
+            <input ng-disabled="userForm.$invalid || user.password !== user.password2 || !user.admin" type="submit"
                    class="btn btn-primary" value="Add">
         </form>
     </div>

@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-6">About: {{movieInfo.Title}}</div>
+            <div class="col-md-6 text-right"><button id="closebutton" class="close" type="button" ng-click="cancel()"> <span aria-hidden="true">&times;</span></button></div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row" ng-repeat="(key, value) in movieInfo" ng-if="movieInfo.Response == 'True'" ng-switch
+             on="key">
+
+            <div ng-switch-when="Poster">
+                <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+                <div class="col-md-10" ng-if="value!='N/A'"><img ng-src="{{value}}"></div>
+                <div class="col-md-10" ng-if="value=='N/A'">{{value}}</div>
+            </div>
+            <div ng-switch-when="tomatoURL">
+                <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+                <div class="col-md-10" ng-if="value!='N/A'"><a href="{{value}}">{{value}}</a></div>
+                <div class="col-md-10" ng-if="value=='N/A'">{{value}}</div>
+            </div>
+            <div ng-switch-when="Website">
+                <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+                <div class="col-md-10" ng-if="value!='N/A'"><a href="{{value}}">{{value}}</a></div>
+                <div class="col-md-10" ng-if="value=='N/A'">{{value}}</div>
+            </div>
+            <div ng-switch-when="Response"></div>
+            <div ng-switch-default>
+                <div class="col-md-2"><label for="{{key}}">{{key}}:</label></div>
+                <div class="col-md-10" id="{{key}}">{{value}}</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+    </div>
+</div>

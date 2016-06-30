@@ -9,13 +9,12 @@ angular.module('myApp.cart', [])
         });
     }])
 
-    .controller('CartCtrl', ['$scope', '$http','moviesCart', function ($scope, $http, moviesCart) {
+    .controller('CartCtrl', ['$scope','moviesCart', function ($scope, moviesCart) {
         $scope.cartData = [];
-        console.log(moviesCart.cart);
         $scope.cartData = moviesCart.cart;
 
-        $scope. deleteMovie = function (index) {
-            delete $scope.cartData[index];
+        $scope.deleteMovie = function (index) {
+            moviesCart.cart.splice(index, 1);
         }
 
     }]);

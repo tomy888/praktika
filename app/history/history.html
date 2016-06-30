@@ -1,0 +1,28 @@
+<!--<pre>
+    {{historyData | json}}
+</pre>-->
+
+<h2>Movies you already bought:</h2>
+<div ng-if="historyData.length == 0">None</div>
+<table class="table table-bordered" ng-if="historyData.length > 0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Movie</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Bought at</th>
+            <th>Information</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="movie in historyData track by $index">
+        <tr>
+            <th scope="row">{{$index+1}}</th>
+            <td>{{movie.name}} </td>
+            <td>{{movie.amount}}</td>
+            <td>{{movie.price}} €</td>
+            <td>{{movie.date}}</td>
+            <td><button class="btn btn-primary" ng-click="open(movie.name)">About movie</button></td>
+        </tr>
+    </tbody>
+</table>

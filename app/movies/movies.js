@@ -42,6 +42,7 @@ angular.module('myApp.movies', [])
                 animation: $scope.animationsEnabled,
                 templateUrl: 'movies/modal/myModalContent.html',
                 controller: function ($scope, $uibModalInstance, description) {
+                    console.log(description);
                     $scope.description = description;
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');

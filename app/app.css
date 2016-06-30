@@ -101,3 +101,7 @@ input[type="password"]:disabled.ng-valid{
 #nametooshort{
   color:red;
 }
+
+#closebutton{
+  color:red;
+}
