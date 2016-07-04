@@ -1,9 +1,9 @@
-<form class="navbar-form navbar-right" role="search">
+<form class="navbar-form navbar-right">
     <div class="form-group">
-        <input type="text" class="form-control" name="username" placeholder="Username">
+        <input type="text" ng-model="guest.username" class="form-control" name="username" placeholder="Username">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="password" placeholder="Password">
+        <input type="password" ng-model="guest.password" class="form-control" name="password" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-default">Log In</button>
 </form>
