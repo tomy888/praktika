@@ -6,3 +6,4 @@ tmp
 .DS_Store
 .idea
 /server_app/db/
+/db/
