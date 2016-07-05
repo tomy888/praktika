@@ -30,7 +30,7 @@ angular.module('myApp.movies', [])
             $scope.filmai = response.data.filmai;
             $scope.addOrder($scope.filmai);
 
-            console.log($scope.filmai);
+           // console.log($scope.filmai);
         }, function errorCallback(response) {
             $scope.error = 'Can`t load movies';
         });
@@ -42,7 +42,7 @@ angular.module('myApp.movies', [])
                 animation: $scope.animationsEnabled,
                 templateUrl: 'movies/modal/myModalContent.html',
                 controller: function ($scope, $uibModalInstance, description) {
-                    console.log(description);
+                   // console.log(description);
                     $scope.description = description;
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');
@@ -90,7 +90,7 @@ angular.module('myApp.movies', [])
 
         }
 
-        console.log(moviesCart.cart);
+        //console.log(moviesCart.cart);
         
         
 

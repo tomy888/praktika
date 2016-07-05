@@ -17,7 +17,9 @@ angular.module('myApp', [
     'myApp.step3',
     'myApp.historyService',
     'myApp.history',
-    'myApp.loginDirective'
+    'myApp.loginDirective',
+    "myApp.403",
+    'myApp.loginService'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 

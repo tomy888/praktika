@@ -1,7 +1,8 @@
-<!--<pre>
+<pre>
      {{usersInfo | json}}
- </pre>-->
+ </pre>
 
+<!--
 <div ng-repeat="users in usersInfo">
     <div class="row window" ng-repeat="user in users">
         <div ng-repeat="(key,value) in user" ng-switch on="key">
@@ -11,8 +12,20 @@
                 <div class="col-md-10">{{value}}</div>
             </div>
         </div>
-        <button class="btn btn-primary" ng-click="delUser(user.id)">Delete user</button>
+        &lt;!&ndash;<button class="btn btn-primary" ng-click="delUser(user.id)">Delete user</button>&ndash;&gt;
     </div>
-    <div class="alert alert-success" role="alert" ng-show="successDeleteTextAlert">{{successDeleteTextAlert}}</div>
-    <div class="alert alert-danger" role="alert" ng-show="errorDeleteTextAlert">{{errorDeleteTextAlert}}</div>
+    &lt;!&ndash;<div class="alert alert-success" role="alert" ng-show="successDeleteTextAlert">{{successDeleteTextAlert}}</div>
+    <div class="alert alert-danger" role="alert" ng-show="errorDeleteTextAlert">{{errorDeleteTextAlert}}</div>&ndash;&gt;
+</div>-->
+
+<div ng-repeat="users in usersInfo">
+    <div class="row window">
+        <div ng-repeat="(key,value) in users" ng-switch on="key">
+            <div ng-switch-when="password"></div>
+            <div  ng-switch-default>
+                <div class="col-md-2"><b>{{key}}:</b></div>
+                <div class="col-md-10">{{value}}</div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,11 @@
-<form class="navbar-form navbar-right">
+<div class="alert alert-success" class="form-group" ng-if="successTextAlert">
+    {{successTextAlert}}
+</div>
+<div class="alert alert-danger" class="form-group" ng-if="errorTextAlert && !successTextAlert">
+    {{errorTextAlert}}
+</div>
+
+<form ng-show="!successTextAlert" class="navbar-form navbar-right" ng-submit="login()">
     <div class="form-group">
         <input type="text" ng-model="guest.username" class="form-control" name="username" placeholder="Username">
     </div>
