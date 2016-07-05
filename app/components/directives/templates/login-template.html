@@ -1,11 +1,11 @@
-<div class="alert alert-success" class="form-group" ng-if="successTextAlert">
-    {{successTextAlert}}
+<div class="text-right" ng-if="guestName">
+    <h5>Logged In As:{{guestName}}</h5>
 </div>
-<div class="alert alert-danger" class="form-group" ng-if="errorTextAlert && !successTextAlert">
+<div class="alert alert-danger" class="form-group" ng-if="errorTextAlert && !guestName">
     {{errorTextAlert}}
 </div>
 
-<form ng-show="!successTextAlert" class="navbar-form navbar-right" ng-submit="login()">
+<form ng-show="!guestName" class="navbar-form navbar-right" ng-submit="login()">
     <div class="form-group">
         <input type="text" ng-model="guest.username" class="form-control" name="username" placeholder="Username">
     </div>

@@ -16,7 +16,7 @@ angular.module('myApp.loginDirective', ['ngRoute']).directive('login', function 
                     $scope.success = data;
                     //console.log($scope.success.message)
                     if($scope.success.success == true){
-                        $scope.successTextAlert = "Welcome "+$scope.guest.username+"!";
+                        $scope.guestName = $scope.guest.username;
                         loginService.addResponseData($scope.success.token);
                     }
                     else{

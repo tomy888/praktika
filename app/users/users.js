@@ -15,7 +15,7 @@ angular.module('myApp.users', [])
         $scope.token = loginService.token();
         //console.log($scope.token);
         var usersUrl = 'http://localhost:9001/api/users/?token='+$scope.token+'';
-        console.log(usersUrl);
+        //console.log(usersUrl);
 
         $http.get(usersUrl).
         success(function(data,status) {
@@ -30,10 +30,10 @@ angular.module('myApp.users', [])
             }
         });
 
-        /*$scope.delUser = function (id) {
-
-            var deleteUrl = 'http://localhost:3000/deleteuser/'+id+'';
-            $http.get(deleteUrl).
+        $scope.delUser = function (id) {
+            //console.log(id)
+            var deleteUrl = 'http://localhost:9001/api/users/:'+id+'/?token='+$scope.token+'';
+            $http.DELETE(deleteUrl).
             success(function(data, status) {
                 console.log(data)
                 $scope.successDeleteTextAlert = "User deleted!";
@@ -42,7 +42,6 @@ angular.module('myApp.users', [])
                 $scope.errorDeleteTextAlert = "Error!";
                 console.log(data)
             });
-
-        }*/
+        }
 
     }]);

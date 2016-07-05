@@ -1,6 +1,6 @@
-<pre>
+<!--<pre>
      {{usersInfo | json}}
- </pre>
+ </pre>-->
 
 <!--
 <div ng-repeat="users in usersInfo">
@@ -27,5 +27,6 @@
                 <div class="col-md-10">{{value}}</div>
             </div>
         </div>
+        <button class="btn btn-primary" ng-click="delUser(users._id)">Delete user</button>
     </div>
 </div>
