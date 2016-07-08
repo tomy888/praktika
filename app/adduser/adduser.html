@@ -7,6 +7,11 @@
                 <div ng-show="userForm.name.$invalid">Name must contain at least 3 letters.</div>
             </div>
             <div class="form-group">
+                <label for="username">Username:</label>
+                <input name="username" id="username" class="form-control" type="text" ng-model="user.username" pattern="(?=.*[a-z]).{3,}" required>
+                <div ng-show="userForm.username.$invalid">Name must contain at least 3 letters.</div>
+            </div>
+            <div class="form-group">
                 <label for="password">Password:</label>
                 <input name="password" id="password" class="form-control" type="password" ng-model="user.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 <div ng-show="userForm.password.$invalid">Password must contain at least one number,one uppercase and lowercase letter and at least 8 or more characters.</div>
@@ -31,13 +36,13 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input id="email" class="form-control" type="email" ng-model="user.email" required>
+                <label for="location">Location:</label>
+                <input id="location" class="form-control" type="text" ng-model="user.location" required>
             </div>
             <input ng-disabled="userForm.$invalid || user.password !== user.password2 || !user.admin" type="submit"
                    class="btn btn-primary" value="Add">
         </form>
     </div>
     <div class="alert alert-success" role="alert" ng-show="successTextAlert">{{successTextAlert}}</div>
-    <div class="alert alert-danger" role="alert" ng-show="errorTextAlert">{{errorTextAlert}}</div>
+    <div class="alert alert-danger" role="alert" ng-show="errorTextAlert && !successTextAlert">{{errorTextAlert}}</div>
 </div>

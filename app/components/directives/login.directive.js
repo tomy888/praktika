@@ -5,26 +5,34 @@ angular.module('myApp.loginDirective', ['ngRoute']).directive('login', function 
         restrict: 'E',
         scope: {},
         templateUrl: '/components/directives/templates/login-template.html',
-        controller: function ($scope,$http,loginService) {
+        controller: function ($scope, loginService, $cookies) {
+
+            $scope.loggedIn = false;
+            $scope.errorTextAlert = false;
+
+            var token;
+            $cookies.get('praktika_token') ? token = JSON.parse($cookies.get('praktika_token')).token : token = false;
+
+            if($cookies.get('praktika_token')) {
+                $scope.guestName = JSON.parse($cookies.get('praktika_token')).username;
+                $scope.loggedIn = true;
+            }
 
             $scope.login = function () {
-                $scope.newUser = {"username":$scope.guest.username,"password":$scope.guest.password};
-                
-
-                $http.post("http://localhost:9001/api/authenticate", $scope.newUser).success(function (data, status) {
-                    //console.log(data, status);
-                    $scope.success = data;
-                    //console.log($scope.success.message)
-                    if($scope.success.success == true){
-                        $scope.guestName = $scope.guest.username;
-                        loginService.addResponseData($scope.success.token);
-                    }
-                    else{
-                        $scope.errorTextAlert = "Password or username is incorrect!";
-                    }
-                }).error(function (data, status) {
-                    //console.log(data, status);
-                });
+                //loginService.login($scope.guest);
+                //$scope.guestName = $scope.guest.username;
+                loginService.loginUser($scope.guest).then(
+                    function (success) {
+                        if(success.success) {
+                            loginService.setToken(success.token, $scope.guest.username);
+                            loginService.guestName = $scope.guest.username;
+                            $scope.guestName = loginService.guestName;
+                            $scope.loggedIn = true;
+                        }
+                    }, function (error) {
+                        console.log(error);
+                        $scope.errorTextAlert = error;
+                    });
             };
 
         }

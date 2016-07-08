@@ -2,31 +2,31 @@
      {{usersInfo | json}}
  </pre>-->
 
-<!--
-<div ng-repeat="users in usersInfo">
-    <div class="row window" ng-repeat="user in users">
-        <div ng-repeat="(key,value) in user" ng-switch on="key">
-            <div ng-switch-when="password"></div>
-            <div  ng-switch-default>
-                <div class="col-md-2"><b>{{key}}:</b></div>
-                <div class="col-md-10">{{value}}</div>
-            </div>
-        </div>
-        &lt;!&ndash;<button class="btn btn-primary" ng-click="delUser(user.id)">Delete user</button>&ndash;&gt;
-    </div>
-    &lt;!&ndash;<div class="alert alert-success" role="alert" ng-show="successDeleteTextAlert">{{successDeleteTextAlert}}</div>
-    <div class="alert alert-danger" role="alert" ng-show="errorDeleteTextAlert">{{errorDeleteTextAlert}}</div>&ndash;&gt;
-</div>-->
+<div class="container">
+    <form class="well form-search">
+        <label>Search user by id:</label>
+        <input type="text" ng-model="id._id" class="form-control" placeholder="Id">
+    </form>
+</div>
 
-<div ng-repeat="users in usersInfo">
+<div ng-if="userById">
+    <button class="btn btn-primary" ng-click="showAll()">Show All Users</button>
+</div>
+
+<div ng-repeat="users in usersInfo | filter:id">
     <div class="row window">
         <div ng-repeat="(key,value) in users" ng-switch on="key">
             <div ng-switch-when="password"></div>
             <div  ng-switch-default>
                 <div class="col-md-2"><b>{{key}}:</b></div>
-                <div class="col-md-10">{{value}}</div>
+                <div ng-if="!editEnabled" class="col-md-10">{{value}}</div>
+                <div ng-if="editEnabled" class="col-md-10"><input ng-model="users[key]"></div>
             </div>
         </div>
-        <button class="btn btn-primary" ng-click="delUser(users._id)">Delete user</button>
+        <div class="row">
+            <div class="col-md-2"><button class="btn btn-primary" ng-click="delUser(users._id)">Delete user</button></div>
+            <div class="col-md-2"><button class="btn btn-primary" ng-click="editEnabled = true">Edit user</button></div>
+            <div class="col-md-8"><button class="btn btn-primary" ng-click="editEnabled = false;updateUserById(users)" ng-show="editEnabled">Save</button></div>
+        </div>
     </div>
 </div>

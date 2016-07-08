@@ -1,17 +1,68 @@
 'use strict';
+//angular.module('myApp.loginService', []);
+angular.module('myApp.loginService', []).service('loginService', loginService);
+function loginService($cookies, $http, $q) {
+    var name = false;
+    var guestName = function () {
+        return name;
+    };
+    /*var login = function (guest) {
+        var newUser = {"username": guest.username, "password": guest.password};
+        var success = {};
 
-angular.module('myApp.loginService', []).service('loginService', function() {
-    var responseData = '';
-    var addResponseData = function(item) {
-        responseData = item;
-        //console.log(responseData);
+
+        $http.post("http://localhost:9001/api/authenticate", newUser).success(function (data, status) {
+            //console.log(data, status);
+            success = data;
+            //console.log($scope.success.message)
+            if (success.success == true) {
+                name = guest.username;
+                addTokenToCookie();
+            }
+            else {
+                var errorTextAlert = "Password or username is incorrect!";
+                console.log(errorTextAlert);
+            }
+        }).error(function (data, status) {
+            //console.log(data, status);
+        });
+
+
+        var addTokenToCookie = function () {
+
+            $cookies.put('praktika_token', success.token);
+        };
+
+    };*/
+
+    var setToken = function(token, username) {
+        $cookies.put('praktika_token', JSON.stringify({token: token, username: username}));
+
+        console.log(JSON.parse($cookies.get('praktika_token')));
     };
-    var getToken = function () {
-        return responseData;
+
+    var deferred = $q.defer();
+    var loginUser = function (guest) {
+        var newUser = {"username": guest.username, "password": guest.password};
+        return $http.post('http://localhost:9001/api/authenticate', newUser)
+            .then(function (response) {
+                // promise is fulfilled
+                deferred.resolve(response.data);
+                // promise is returned
+                return deferred.promise;
+            }, function (response) {
+                // the following line rejects the promise
+                deferred.reject(response);
+                // promise is returned
+                return deferred.promise;
+            });
     };
+
+    console.log(name);
     return {
-        token:getToken,
-        addResponseData:addResponseData
+        guestName: name,
+        loginUser: loginUser,
+        setToken: setToken
     };
-
-});
+}
+loginService.$inject = ['$cookies', '$http', '$q'];

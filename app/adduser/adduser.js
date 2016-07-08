@@ -9,28 +9,36 @@ angular.module('myApp.addUser', [])
         });
     }])
 
-    .controller('AddUserCtrl', ['$scope', '$http', function ($scope, $http) {
+    .controller('AddUserCtrl', ['$scope', '$http','loginService', function ($scope, $http,loginService) {
 
         $scope.successTextAlert = false;
         $scope.errorTextAlert = false;
+        $scope.token = '';
+        $scope.token = loginService.token();
 
         $scope.addUser = function () {
-            $scope.newUser = {
-                "user": {
+            if ($scope.token.length > 0) {
+                $scope.newUser = {
                     "name": $scope.user.name,
+                    "username": $scope.user.username,
                     "password": $scope.user.password,
-                    "isadmin": $scope.user.admin == 'true' ? true : false,
-                    "email": $scope.user.email
-                }
-            };
+                    "admin": $scope.user.admin == 'true' ? true : false,
+                    "location": $scope.user.location
+                };
 
-            $http.post("http://localhost:3000/adduser", $scope.newUser).success(function (data, status) {
-                console.log(data, status);
-                $scope.successTextAlert = "User added!";
-            }).error(function (data, status) {
-                console.log(data, status);
-                $scope.errorTextAlert = "Error!";
-            });
+                $http.post('http://localhost:9001/api/users/?token=' + $scope.token + '', $scope.newUser).success(function (data, status) {
+                    console.log(data, status);
+                    $scope.successTextAlert = "User added!";
+                }).error(function (data, status) {
+                    //console.log(data, status);
+                    $scope.successTextAlert = false;
+                    if (data.error.code === 11000) {
+                        $scope.errorTextAlert = "Username already exists! Please try another one"
+                    } else {
+                        $scope.errorTextAlert = "Error!";
+                    }
+                });
+            }
         };
 
 
