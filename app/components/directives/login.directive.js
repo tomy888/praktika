@@ -19,18 +19,20 @@ angular.module('myApp.loginDirective', ['ngRoute']).directive('login', function 
             }
 
             $scope.login = function () {
-                //loginService.login($scope.guest);
-                //$scope.guestName = $scope.guest.username;
                 loginService.loginUser($scope.guest).then(
                     function (success) {
+                        $scope.errorTextAlert = loginService.errorText();
+                        //$scope.errorTextAlert = success.message;
+                        //console.log(success);
                         if(success.success) {
                             loginService.setToken(success.token, $scope.guest.username);
-                            loginService.guestName = $scope.guest.username;
-                            $scope.guestName = loginService.guestName;
+                            //loginService.guestName = $scope.guest.username;
+                            //$scope.guestName = loginService.guestName;
+                            $scope.guestName = $scope.guest.username;
                             $scope.loggedIn = true;
                         }
                     }, function (error) {
-                        console.log(error);
+                        console.log('error');
                         $scope.errorTextAlert = error;
                     });
             };

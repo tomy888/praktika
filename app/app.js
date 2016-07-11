@@ -21,7 +21,9 @@ angular.module('myApp', [
     "myApp.403",
     'myApp.loginService',
     'ngCookies'
-]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+]).config(['$locationProvider', '$routeProvider','$httpProvider', function ($locationProvider, $routeProvider,$httpProvider) {
+
+    $httpProvider.interceptors.push('interceptorService');
     $locationProvider.hashPrefix('!');
 
     $routeProvider.otherwise({redirectTo: '/movies'});

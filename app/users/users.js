@@ -26,9 +26,9 @@ angular.module('myApp.users', [])
             }).
             error(function(data,status) {
                 //console.log(status);
-                if(status === 403){
+              /*  if(status === 403){
                     $location.url('/403');
-                }
+                }*/
             });
         };
 
@@ -39,7 +39,7 @@ angular.module('myApp.users', [])
 
         $scope.delUser = function (id) {
             //console.log(id)
-            var deleteUrl = 'http://localhost:9001/api/users/'+id+'/?token='+$scope.token+'';
+            var deleteUrl = 'http://localhost:9001/api/users/'+id+'/?token='+token+'';
             //console.log(deleteUrl);
             $http.delete(deleteUrl).
             success(function(response) {
@@ -53,7 +53,7 @@ angular.module('myApp.users', [])
 
         $scope.search = function () {
             if ($scope.id.length > 0) {
-                var url = 'http://localhost:9001/api/users/' + $scope.id + '/?token=' + $scope.token + '';
+                var url = 'http://localhost:9001/api/users/' + $scope.id + '/?token=' + token;
 
                 $http({
                     method: 'GET',
@@ -76,7 +76,7 @@ angular.module('myApp.users', [])
         $scope.updateUserById = function (user) {
             $http({
                 method: 'PUT',
-                url: 'http://localhost:9001/api/users/'+user._id+'/?token=' + $scope.token,
+                url: 'http://localhost:9001/api/users/'+user._id+'/?token=' + token,
                 data: {
                     name:user.name,
                     username: user.username,

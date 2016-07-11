@@ -34,4 +34,7 @@ angular.module('myApp.step3', [])
             moviesCart.cart.splice(0, moviesCart.cart.length);
         }
 
+        
+
+
     }]);

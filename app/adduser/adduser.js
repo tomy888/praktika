@@ -9,15 +9,17 @@ angular.module('myApp.addUser', [])
         });
     }])
 
-    .controller('AddUserCtrl', ['$scope', '$http','loginService', function ($scope, $http,loginService) {
+    .controller('AddUserCtrl', ['$scope', '$http','loginService','$cookies', function ($scope, $http,loginService,$cookies) {
 
         $scope.successTextAlert = false;
         $scope.errorTextAlert = false;
-        $scope.token = '';
-        $scope.token = loginService.token();
+        /*$scope.token = '';
+        $scope.token = loginService.token();*/
+        var token;
+        $cookies.get('praktika_token') ? token = JSON.parse($cookies.get('praktika_token')).token : token = false;
 
         $scope.addUser = function () {
-            if ($scope.token.length > 0) {
+            if (token.length > 0) {
                 $scope.newUser = {
                     "name": $scope.user.name,
                     "username": $scope.user.username,
@@ -26,7 +28,7 @@ angular.module('myApp.addUser', [])
                     "location": $scope.user.location
                 };
 
-                $http.post('http://localhost:9001/api/users/?token=' + $scope.token + '', $scope.newUser).success(function (data, status) {
+                $http.post('http://localhost:9001/api/users/?token=' + token + '', $scope.newUser).success(function (data, status) {
                     console.log(data, status);
                     $scope.successTextAlert = "User added!";
                 }).error(function (data, status) {

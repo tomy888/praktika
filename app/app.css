@@ -101,3 +101,18 @@ input[type="password"]:disabled.ng-valid{
 #closebutton{
   color:red;
 }
+
+.card-number {
+
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+
+  word-spacing: 10px;
+}
+
+.card-number:focus {
+  word-spacing: -5px;
+}
