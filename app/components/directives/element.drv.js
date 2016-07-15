@@ -13,10 +13,12 @@ angular.module('myApp').directive('elementDrv', function () {
                 el.value = v.replace(reg, function (a) {
                     return a + ' ';
                 });
-            }*/
+            }
 
+                element.bind('keyup', function () {
+                    space(this, 4);
+                });*/
 
-                console.log(element);
             element.bind('blur', function () {
                 var creditNumber = [], value = element.val().replace(/ /g, '');
                 for (var i = 0; i < value.length; i += 4) {

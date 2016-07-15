@@ -20,7 +20,8 @@ angular.module('myApp', [
     'myApp.loginDirective',
     "myApp.403",
     'myApp.loginService',
-    'ngCookies'
+    'ngCookies',
+    'myApp.game'
 ]).config(['$locationProvider', '$routeProvider','$httpProvider', function ($locationProvider, $routeProvider,$httpProvider) {
 
     $httpProvider.interceptors.push('interceptorService');
