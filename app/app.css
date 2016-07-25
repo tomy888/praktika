@@ -116,3 +116,29 @@ input[type="password"]:disabled.ng-valid{
 .card-number:focus {
   word-spacing: -5px;
 }
+
+#testCanvas {
+  cursor: crosshair;
+}
+
+.comments{
+  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 1em;
+}
+
+.answer{
+  border-top: 1px solid #E0E0E0;
+  padding-left: 4em;
+}
+
+#like{
+ color: green;
+}
+#dislike{
+color: red; padding-left: 5px
+}
+
+.glyphicon{
+  cursor:pointer;
+}

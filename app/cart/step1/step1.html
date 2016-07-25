@@ -26,11 +26,13 @@
         </div>
         <div class="form-group">
             <label for="robot">Prove you are not a robot:</label>
-            <input id="robot" class="form-control" type="text" ng-model="buyer.text" placeholder="Enter the text you see below" required>
+            <input ng-focus="getRandomString()" id="robot" class="form-control" type="text" ng-model="buyerString" placeholder="Enter the text you see below" required>
         </div>
+        <robot-drv seed="{{randomSeed}}"></robot-drv>
         <div>
-            <input ng-disabled="personalInfo.$invalid" ng-click="submited()" ng-show="!next" type="submit" class="btn btn-primary" value="Submit">
+            <input ng-disabled="personalInfo.$invalid" ng-click="match()" ng-show="!next" type="submit" class="btn btn-primary" value="Submit">
             <div class="alert alert-success" role="alert" ng-show="next">Submited!</div>
+            <div class="alert alert-danger" role="alert" ng-show="errorAlert && !next">{{errorAlert}}</div>
         </div>
         <p>
             <div class="row">

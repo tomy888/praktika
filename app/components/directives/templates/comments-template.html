@@ -1,0 +1,50 @@
+<!--<pre>{{answersTree | json}}</pre>-->
+<div ng-if="!loggedIn">Please log in to see the comments</div>
+<div ng-if="loggedIn">
+    <script type="text/ng-template" id="tree_item_renderer.html">
+        <div>
+            <div><b>{{data.username}}</b> {{data.created_at}}
+                <span ng-click="data.likes = data.likes + 1" id="like" class="glyphicon glyphicon-thumbs-up"></span>
+                {{data.likes}}
+                <span ng-click="data.dislikes = data.dislikes + 1" id="dislike"
+                      class="glyphicon glyphicon-thumbs-down"></span>
+                {{data.dislikes}}
+            </div>
+            <div class="answer">
+                <div>{{data.message}}</div>
+                <div>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-primary" ng-click="enableAnswer();whichComment(data._id)">
+                            Answer
+                        </button>
+                    </div>
+                    <div ng-show="answerEnabled === true;selectedCommentId === data._id" ng-init="data.comment =''">
+                    <textarea ng-focus="takeCookieData()" maxlength="200" class="form-control"
+                              placeholder="Your answer"
+                              ng-model="data.comment"></textarea>
+                        <div>{{200-data.comment.length}}</div>
+                        <button ng-disabled="data.comment === ''" type="button" class="btn btn-primary"
+                                ng-click="commentData(data.comment,data._id);closeAnswerBox()">
+                            Comment
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-click="closeAnswerBox()">Close</button>
+                    </div>
+                </div>
+                <div ng-repeat="data in data.children" ng-include="'tree_item_renderer.html'"></div>
+            </div>
+        </div>
+
+    </script>
+    <div>
+        <div ng-repeat="data in answersTree" ng-include="'tree_item_renderer.html'"></div>
+        <div>
+        <textarea ng-init="comment = ''" ng-focus="takeCookieData()" maxlength="200" class="form-control"
+                  placeholder="Your comment "
+                  ng-model="comment"></textarea>
+            <div>{{200-comment.length}}</div>
+            <button ng-disabled="comment === ''" type="button" class="btn btn-primary"
+                    ng-click="commentData(comment);comment = ''">Comment
+            </button>
+        </div>
+    </div>
+</div>

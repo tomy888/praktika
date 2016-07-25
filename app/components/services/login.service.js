@@ -39,8 +39,8 @@ function loginService($cookies, $http, $q) {
     var errorText = function () {
         return errorTextAlert;
     };
-    var setToken = function(token, username) {
-        $cookies.put('praktika_token', JSON.stringify({token: token, username: username}));
+    var setToken = function(token, username,id) {
+        $cookies.put('praktika_token', JSON.stringify({token: token, username: username,id: id}));
 
         //console.log(JSON.parse($cookies.get('praktika_token')));
     };

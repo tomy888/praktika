@@ -25,7 +25,9 @@ angular.module('myApp.loginDirective', ['ngRoute']).directive('login', function 
                         //$scope.errorTextAlert = success.message;
                         //console.log(success);
                         if(success.success) {
-                            loginService.setToken(success.token, $scope.guest.username);
+                            loginService.setToken(success.token, success.username,success.userID);
+                            //console.log($scope.guest);
+                            //console.log(success.username,success.userID);
                             //loginService.guestName = $scope.guest.username;
                             //$scope.guestName = loginService.guestName;
                             $scope.guestName = $scope.guest.username;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').factory('interceptorService', ['$q', '$injector', function ($q, $injector) {
+angular.module('myApp').factory('interceptorService', ['$q', '$injector','$location', function ($q, $injector,$location) {
 
     var interceptorService = {
         responseError : function (response) {
