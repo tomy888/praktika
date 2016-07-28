@@ -13,6 +13,7 @@ angular.module('myApp.search', [])
         $scope.movieInfo = {};
         $scope.error = null;
         $scope.search = function () {
+            console.log($scope.keywords);
             if ($scope.keywords.length > 0) {
                 var movieUrl = 'http://www.omdbapi.com/?t=' + $scope.keywords + '&y=true&plot=full&r=json&tomatoes=true&type=movie';
 

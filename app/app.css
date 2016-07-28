@@ -142,3 +142,7 @@ color: red; padding-left: 5px
 .glyphicon{
   cursor:pointer;
 }
+
+.bold-text{
+  font-weight: bold;
+}

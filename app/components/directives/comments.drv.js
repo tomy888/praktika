@@ -7,13 +7,15 @@ angular.module('myApp.commentsDrv', ['ngRoute']).directive('commentsDrv', functi
             topicId: '@'
         },
         templateUrl: '/components/directives/templates/comments-template.html',
-        controller: function ($scope, $http, $cookies) {
+        controller: function ($scope, $http, $cookies, $sce) {
             var cookie;
             var commentsUrl;
             var getCommentsByTopicUrl;
             $scope.loggedIn = false;
             $scope.selectedComment = null;
+            $scope.answerEnabled = false;
             $scope.answersTree = [];
+            $scope.comment = '';
 
             if ($cookies.get('praktika_token')) {
                 $scope.loggedIn = true;
@@ -31,7 +33,6 @@ angular.module('myApp.commentsDrv', ['ngRoute']).directive('commentsDrv', functi
                 $http.get(getCommentsByTopicUrl).success(function (response) {
                     $scope.allComments=response;
                     $scope.answersTree = makeAnswersTree($scope.allComments,undefined);
-
                 }).error(function (response) {
                     console.log(response);
 
@@ -52,15 +53,14 @@ angular.module('myApp.commentsDrv', ['ngRoute']).directive('commentsDrv', functi
                 };
                 return out
             }
-
-            $scope.commentData = function (comment, id,like) {
-                // console.log(comment,id);
+            $scope.rootModel = {};
+            $scope.commentData = function (id) {
                 $scope.testComment = {
                     "userid": cookie.id,
                     "username": cookie.username,
-                    "message": comment,
+                    "message": $scope.rootModel.comment,
                     "parentId": id,
-                    "topicId": $scope.topicId,
+                    "topicId": $scope.topicId
                 };
                 createComment();
             };
@@ -87,6 +87,10 @@ angular.module('myApp.commentsDrv', ['ngRoute']).directive('commentsDrv', functi
                 $scope.answerEnabled = false;
                 $scope.selectedCommentId = null;
             }
+
+            $scope.trustedHTML = function(message){
+                return $sce.trustAsHtml(message);
+            };
         }
     };
 });

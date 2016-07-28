@@ -12,7 +12,7 @@
 
 <div id="movieInfo" class="container">
 
-    <div class="row window" ng-repeat="(key, value) in movieInfo" ng-if="movieInfo.Response == 'True'" ng-switch
+    <div class="row" ng-repeat="(key, value) in movieInfo" ng-if="movieInfo.Response == 'True'" ng-switch
          on="key">
 
         <div ng-switch-when="Poster">
