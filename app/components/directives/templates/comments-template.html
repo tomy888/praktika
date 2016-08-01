@@ -20,7 +20,7 @@
                         </button>
                     </div>
                     <div ng-show="answerEnabled === true;selectedCommentId === data._id" ng-init="data.comment =''">
-                    <textarea ng-focus="takeCookieData()" maxlength="200" class="form-control"
+                    <textarea editor-drv ng-focus="takeCookieData()" maxlength="200" class="form-control"
                               placeholder="Your answer"
                               ng-model="rootModel.comment"></textarea>
                         <div>{{200-data.comment.length}}</div>
