@@ -49,7 +49,7 @@ function loginService($cookies, $http, $q) {
     var loginUser = function (guest) {
         var newUser = {"username": guest.username, "password": guest.password};
         deferred = $q.defer();
-        return $http.post('http://localhost:9001/api/authenticate', newUser)
+        return $http.post('http://530309.s.dedikuoti.lt:9001/api/authenticate', newUser)
             .then(function (response) {
                 //console.log(response);
                 errorTextAlert = response.data.message;
