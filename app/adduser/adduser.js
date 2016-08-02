@@ -4,7 +4,7 @@ angular.module('myApp.addUser', [])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/addUser', {
-            templateUrl: 'addUser/addUser.html',
+            templateUrl: 'adduser/adduser.html',
             controller: 'AddUserCtrl'
         });
     }])
