@@ -24,8 +24,8 @@ angular.module('myApp.commentsDrv', ['ngRoute']).directive('commentsDrv', functi
 
             function takeCookieData() {
                 $cookies.get('praktika_token') ? cookie = JSON.parse($cookies.get('praktika_token')) : cookie = false;
-                commentsUrl = 'http://localhost:9001/api/comments/?token=' + cookie.token + '';
-                getCommentsByTopicUrl = 'http://localhost:9001/api/comments/' + $scope.topicId + '/?token=' + cookie.token + '';
+                commentsUrl = 'http://530309.s.dedikuoti.lt:9001/api/comments/?token=' + cookie.token + '';
+                getCommentsByTopicUrl = 'http://530309.s.dedikuoti.lt:9001/api/comments/' + $scope.topicId + '/?token=' + cookie.token + '';
             };
 
             function getCommentsByTopic() {

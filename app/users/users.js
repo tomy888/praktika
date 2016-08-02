@@ -14,7 +14,7 @@ angular.module('myApp.users', [])
         var token;
         $cookies.get('praktika_token') ? token = JSON.parse($cookies.get('praktika_token')).token : token = false;
 
-        var usersUrl = 'http://localhost:9001/api/users/?token='+token;
+        var usersUrl = 'http://530309.s.dedikuoti.lt:9001/api/users/?token='+token;
         $scope.editEnabled = false;
 
         $scope.getAllUsers = function () {
@@ -39,7 +39,7 @@ angular.module('myApp.users', [])
 
         $scope.delUser = function (id) {
             //console.log(id)
-            var deleteUrl = 'http://localhost:9001/api/users/'+id+'/?token='+token+'';
+            var deleteUrl = 'http://530309.s.dedikuoti.lt:9001/api/users/'+id+'/?token='+token+'';
             //console.log(deleteUrl);
             $http.delete(deleteUrl).
             success(function(response) {
@@ -53,7 +53,7 @@ angular.module('myApp.users', [])
 
         $scope.search = function () {
             if ($scope.id.length > 0) {
-                var url = 'http://localhost:9001/api/users/' + $scope.id + '/?token=' + token;
+                var url = 'http://530309.s.dedikuoti.lt:9001/api/users/' + $scope.id + '/?token=' + token;
 
                 $http({
                     method: 'GET',
@@ -76,7 +76,7 @@ angular.module('myApp.users', [])
         $scope.updateUserById = function (user) {
             $http({
                 method: 'PUT',
-                url: 'http://localhost:9001/api/users/'+user._id+'/?token=' + token,
+                url: 'http://530309.s.dedikuoti.lt:9001/api/users/'+user._id+'/?token=' + token,
                 data: {
                     name:user.name,
                     username: user.username,

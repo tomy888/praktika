@@ -28,7 +28,7 @@ angular.module('myApp.addUser', [])
                     "location": $scope.user.location
                 };
 
-                $http.post('http://localhost:9001/api/users/?token=' + token + '', $scope.newUser).success(function (data, status) {
+                $http.post('http://530309.s.dedikuoti.lt:9001/api/users/?token=' + token + '', $scope.newUser).success(function (data, status) {
                     console.log(data, status);
                     $scope.successTextAlert = "User added!";
                 }).error(function (data, status) {
