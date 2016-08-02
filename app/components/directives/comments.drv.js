@@ -6,7 +6,7 @@ angular.module('myApp.commentsDrv', ['ngRoute']).directive('commentsDrv', functi
         scope: {
             topicId: '@'
         },
-        templateUrl: '/components/directives/templates/comments-template.html',
+        templateUrl: 'components/directives/templates/comments-template.html',
         controller: function ($scope, $http, $cookies, $sce) {
             var cookie;
             var commentsUrl;
